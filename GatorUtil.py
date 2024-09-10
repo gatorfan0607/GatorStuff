@@ -37,7 +37,7 @@ def run_troubleshooting_utilities():
         for cmd in selected_commands:
             command = troubleshooting_commands[cmd]
             result_file = os.path.join(output_dir, f"{cmd.replace(' ', '_')}.txt")
-            execute_command(command, result_file)
+            run_command(f"{command} > {result_file}")  # Run command and save output to file
             results += f"\n{cmd}:\n{'='*len(cmd)}\n{open(result_file).read()}\n"
 
         messagebox.showinfo("Success", "Troubleshooting commands executed. Results saved in C:\\SFC_logs")
